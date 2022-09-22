@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="qrcode.js"></script>
+  </head>
+  <body>
+    <div>前缀:Waiqin365JsBridgehttp://172.31.0.21:3000</div>
+    <div>
+      <textarea id="textarea" rows="5" style="width: 600px"></textarea>
+    </div>
+
+    <div>
+      <button id="button">重新加载</button>
+    </div>
+
+    <div id="qrcode"></div>
+
+    <script type="text/javascript">
+      var qrcode = new QRCode("qrcode", {
+        text: "你真帅",
+        width: 128,
+        height: 128,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+      document.querySelector("#button").addEventListener("click", () => {
+        const val = document.querySelector("#textarea").value;
+        qrcode.clear(); // 清除代码
+        qrcode.makeCode("Waiqin365JsBridge" + "http://172.31.0.21:3000" + val); // 生成另外一个二维码
+      });
+    </script>
+  </body>
+</html>
